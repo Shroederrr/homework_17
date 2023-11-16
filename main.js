@@ -1,0 +1,38 @@
+let userName = prompt("Enter your name:").trim();
+userName = userName[0].toUpperCase() + userName.slice(1).toLowerCase();
+
+let lastName = prompt("Enter your last nme:").trim();
+lastName = lastName[0].toUpperCase() + lastName.slice(1).toLowerCase();
+
+let userMail = prompt("Enter your e-mail:").replaceAll().toLowerCase();
+userMail = (!userMail.includes("@")) ? `not valid e-mail <b> ${userMail} </b> (symbol "@" doesn't exists.)` :
+    (userMail.startsWith("@")) ? `not valid e-mail <b>${userMail}</b> (symbol "@" has been found at the first place.)` :
+        (userMail.endsWith("@")) ? `not valid e-mail <b>${userMail}</b> (symbol "@" has been found at the last place.)` :
+            `<b> ${userMail} </b>`;
+
+// function checkMail() {
+//     let emailFlag;
+//     if (!userMail.includes("@")) {
+//         emailFlag = `not valid e-mail <b> ${userMail} </b> (symbol "@" doesn't exists.)`;
+//     } else if (userMail.startsWith("@")) {
+//         emailFlag = `not valid e-mail <b>${userMail}</b> (symbol "@" has been found at the first place.)`;
+//     } else if (userMail.endsWith("@")) {
+//         emailFlag = `not valid e-mail <b>${userMail}</b> (symbol "@" has been found at the last place.)`;
+//     } else {
+//         emailFlag = userMail;
+//     }
+// }
+
+let dateOfBirth = +prompt("Enter your birth date:").replaceAll();
+let today = new Date();
+let thisYear = today.getFullYear();
+let userAge;
+
+if (dateOfBirth !== isNaN(true) && dateOfBirth >= 1920 && dateOfBirth <= thisYear) {
+    userAge = thisYear - dateOfBirth;
+} else {
+    userAge = "incorrect";
+}
+
+
+document.write(`<ul><li>Full name: <b>${userName + lastName}</b></li><li>E-mail: ${userMail}</li><li>Age: <b>${userAge}</b></li></ul>`);
